@@ -1,0 +1,20 @@
+{% extends 'base_template.html.j2' %}
+
+{% block content -%}
+<div class="form">
+    <div>
+        <h2>We'd love to hear your feedback.</h2>
+        <p>Send a message using the form below and we'll get back to you as soon as we can.</p>
+        <form>
+            <label for="name">Name</label>
+            <input type="text" id="name"><br/>
+            <label for="email">Email Address</label>
+            <input type="text" id="email"><br/>
+            <label for="message">Your message:</label>
+            <textarea id="message"></textarea><br/>
+            <input type="submit" id="submitbutton" value="Send message">
+        </form>
+    </div>
+</div>
+{{ content | safe }}
+{%- endblock %}

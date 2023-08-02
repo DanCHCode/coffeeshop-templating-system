@@ -1,0 +1,16 @@
+{% extends 'base_template.html.j2' %}
+
+{% block title%}{{ title }}{% endblock %}
+
+{% block content -%}
+<div class="menu">
+{%- for item in menu_items -%}
+    {%set randomno = range(0, 25) | random %}
+    <div style="rotate:{{["-",""] | random }}{{randomno / 5}}deg" class="menu-item">
+        <img alt="Photograph of {{ item['name'] }}" src="../images/{{ item['image'] }}"/>
+        <p>{{ item['name'] }}</p><p>£{{ item['price'] }}</p>
+    </div>
+{%- endfor %}
+</div>
+{{ content | safe }}
+{%- endblock %}

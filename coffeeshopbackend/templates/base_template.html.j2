@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ home }}/stylesheets/icons.css">
+    <link rel="stylesheet" href="{{ home }}/stylesheets/style.css">
+    <title>{{ title }} - Coffee Stop Station</title>
+</head>
+<body>
+
+<div id="container">
+    {% filter indent(width=4) -%}
+    {% with title=title %}{% include "navbar.html.j2" %}{% endwith %}
+    {% endfilter %}
+    <div id="content">
+        {% with menu_items=menu_items %}
+        {% filter indent(width=8) -%}
+        {% block content -%}{{ content | safe }}{%- endblock -%}
+        {% endfilter %}
+        {% endwith %}
+    </div>
+
+    <div id="footer" class="flex_end">
+        <h2>Follow us on:</h2>
+        <ul>
+            {% set sites = [
+                ["facebook", "Facebook"], 
+                ["twitter", "Twitter"], 
+                ["linkedin", "LinkedIn"], 
+                ["instagram", "Instagram"]] %}
+            {% for site in sites -%}
+            <li><a href="https://{{site[0]}}.com" target="_blank"><span aria-label="{{site[0]}} logo" class="icon-{{site[0]}}"></span> {{site[1]}}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+    
+</body>
+</html>

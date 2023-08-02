@@ -1,0 +1,11 @@
+<div id="navbar">
+    {% for page in pages -%}
+    {%- if title == page["title"] %}{% set active = 'class="active-nav"' %}{% endif -%}
+    {%- if page["title"] == "Home" -%}
+    <span class="space-right"><a href="\{{ page['path'] }}" {% if title == page["title"] %} {{ active | safe }}{% endif %}><img class="nav-logo" src="/coffeeshop/images/logo-initials.png" alt="Coffee Stop Station Logo"/></a></span>
+    {%- else -%}
+    <a href="\{{ page['path'] }}"{% if title == page["title"] %} {{ active | safe }}{% endif %}><span>{{page["title"]}}</span></a>{{ "
+    " if not loop.last }}{# Stops it adding the extra space at the end #}
+    {%- endif -%}
+    {%- endfor %}
+</div>
